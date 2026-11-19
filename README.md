@@ -30,11 +30,11 @@ Claude Code skill `cyberpunk-motion-studio` and agent `mult-director` for a face
 
 ## Install and sync
 
-This repository is the source; Remotion keeps a copy. Change it here, then copy:
+This repository is the source; Remotion keeps a copy. Change it here, then copy into MultStudio's worktree (the main checkout `/root/projects/Remotion` is Showrunner's) and push `mult:main`:
 
 ```bash
-rsync -a --delete --exclude .git --exclude .gitignore --exclude ВХОДЯЩИЕ.md ./ /root/projects/Remotion/.claude/skills/cyberpunk-motion-studio/
-cp agents/mult-director.md /root/projects/Remotion/.claude/agents/mult-director.md
+rsync -a --delete --exclude .git --exclude .gitignore --exclude ВХОДЯЩИЕ.md ./ /root/projects/Remotion-mult/.claude/skills/cyberpunk-motion-studio/
+cp agents/mult-director.md /root/projects/Remotion-mult/.claude/agents/mult-director.md
 ```
 
 `specs/tokens.json` is imported by Remotion code: add keys, never rename or remove them.

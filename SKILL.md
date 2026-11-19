@@ -48,6 +48,6 @@ Commands and retargeting — roles/02 §6.
 
 ## Paths and traps
 - v1 `src/components`, `src/scenes`, `data/` live in `src/cyber/`; new parts — `src/series/kit/`; QA — `out/cyber/qa/` (not in git); state — `MOTION_STUDIO_STATE.md` in the repo root, from the template here.
-- Worktree `/root/projects/Remotion-mult`, branch `mult`; push `mult:main` only when 0 behind. Not in git — use by absolute path in `/root/projects/Remotion`: `out/`, `whisper.cpp/`; the worktree needs its own `npm ci`.
+- Worktree `/root/projects/Remotion-mult`, branch `mult`, its own `npm ci`; push `mult:main` only when 0 behind. Renders and QA go to the worktree's own `out/` (git-ignored): `joints.mjs` imports `src/` relatively, so in main's `out/` it would measure main's rig, not yours. Read-only by absolute path in `/root/projects/Remotion`: `out/motion-ref/`, `whisper.cpp/`. Never write to `/root/projects/Remotion` — that checkout is Showrunner's.
 - `src/Root.tsx` is shared with Showrunner: one registry file under `src/series/kit/`, imported into Root once.
 - Money, credits, messages to people — only on the owner's yes in this session's window; a relayed yes doesn't count.
