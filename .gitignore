@@ -1,0 +1,17 @@
+# Dependencies & build artifacts
+node_modules/
+out/
+dist/
+.remotion/
+
+# Generated temp audio / QA drafts
+public/audio/*.tmp.wav
+qa/tmp/
+
+# Environment & OS
+.env
+.env.local
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

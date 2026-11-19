@@ -1,0 +1,22 @@
+# MOTION_STUDIO_STATE.md
+
+- **Active Episode:** `EP_001`
+- **Current Stage:** `STAGE_1_STYLE_DEMO` (`STAGE_1` | `STAGE_2` | `STAGE_3` | `STAGE_4` | `SHIPPED`)
+- **Engine Lock:** `Remotion + @remotion/three + FFmpeg` (`1080x1920`, `30fps`)
+- **Reference Assets Verified:**
+  - `assets/refs/character_turnaround.png` (Heroic 3.2x shoulders / smaller head): [ ]
+  - `assets/refs/emotion_sheet_6x.png`: [ ]
+- **Active Data Artifacts:**
+  - Beat Sheet: `data/beat_sheet.json`
+  - Phoneme Alignment: `data/phonemes.json`
+  - Music Beat Grid: `data/beats.json`
+  - Master Audio: `public/audio/master_mix.wav`
+- **QA Critique Scores (Last Run):**
+  - Silhouette, Heroic Proportions & Facets: `-/10`
+  - Palette & No-Black-Shadows: `-/10`
+  - Safe Zones (`Y:20-72%, X:10-84%`): `-/10`
+  - Lip-Sync & Emotional Snap: `-/10`
+  - Camera Life & Motion Weight: `-/10`
+  - Audio Dynamics & Whip-lash Contrast: `-/10`
+  - Transition Variety (Zero Cross-Dissolves): `-/10`
+  - **Iteration Count (Max 3 per stage):** `0/3`
