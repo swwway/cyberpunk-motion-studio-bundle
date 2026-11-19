@@ -1,46 +1,46 @@
-# Faceted Neo-Cyberpunk Motion Studio Bundle
+# Cyberpunk Motion Studio Bundle — v2.0
 
-Production-ready Claude Code skill & multi-role animation studio bundle for 9:16 vertical Russian-language Instagram Reels (`1080x1920`, `30 fps`) built in **100% pure code** (`Remotion` + `@remotion/three` + `FFmpeg` + Python DSP + Russian neural TTS/lip-sync).
+Claude Code skill `cyberpunk-motion-studio` and agent `mult-director` for a faceless animated series: Russian-language 9:16 reels (`1080x1920`, `30 fps`) made in code with Remotion, Python and FFmpeg. The MultStudio session uses it in the Remotion repository, where the series bible `docs/series/bibliya-formata.md` is the source of truth.
 
-## Repository Structure
+**2.0 (19.11.2026):** rebuilt for the series format — a person with a routine → a dive into the hero's head → a one-gesture solution → CTA, ≈30 s — and its 8 shot types.
+
+## Structure
 
 ```text
 .
-├── SKILL.md                           # Master Orchestrator & 4-Stage Execution Protocol
-├── MOTION_STUDIO_STATE.template.md    # Zero-Drag session state anchor template
-├── assets/
-│   └── refs/
-│       ├── character_turnaround.png   # Heroic proportions (3.2x sharp shoulders, Jacket + Suit + Close-Up)
-│       └── emotion_sheet_6x.png       # 6-emotion expression reference grid
+├── SKILL.md                           # router: format, pipeline, hard rules, motion sources, paths
+├── MOTION_STUDIO_STATE.template.md    # MultStudio state: shot library, rig, kits, last QA
+├── agents/
+│   └── mult-director.md               # Fable director: storyboards, staging, fresh-eye review
+├── tools/
+│   └── joint_speed.py                 # joint-speed graph: dead holds, pops, lags (role 05)
+├── assets/refs/                       # v1 turnaround and emotion sheet — acting references
 ├── specs/
-│   ├── tokens.json                    # Machine-readable SSOT (HEX, safe zones, springs, rig anchors, audio mix)
-│   ├── 01_ART_STYLE_BIBLE.md          # Lineless faceted Neo-Cyberpunk style & motion laws
-│   ├── 02_CHARACTER_RIG_SPEC.md       # Heroic SVG rig (700x800), 2 outfits, 6 Russian visemes
-│   └── 03_WORLD_ENV_SPEC.md           # 3-plane worlds & Anti-Puppet optical cheats
+│   ├── tokens.json                    # numbers; imported by Remotion src/cyber/tokens.ts
+│   ├── 01_ART_STYLE_BIBLE.md          # palette, facets, safe zone, motion craft, render
+│   ├── 02_CHARACTER_RIG_SPEC.md       # hero, hidden bends, inserts, interlocutors, locked face, visemes
+│   └── 03_WORLD_ENV_SPEC.md           # kit worlds, parallax, the dive, transitions
 └── roles/
-    ├── 01_DIRECTOR_BEAT_PLANNER.md    # Emotional beat grid & transition rotation (High)
-    ├── 02_SVG_RIG_ENGINEER.md         # HeroRig, MouthPhonemes, SmearWedge, ShotShoeStep (High)
-    ├── 03_CAMERA_WORLD_3D.md          # Parallax, Cosmos3D spiral camera, captions, CTA slot (Med/High)
-    ├── 04_AUDIO_LIPSYNC_ENGINEER.md   # Chunked emotional Russian TTS, Rhubarb/WhisperX, Python synth (Med)
-    └── 05_QA_CRITIQUE_AGENT.md        # FFmpeg contact sheets, safe-zone check, 7-axis >=8/10 rubric (High)
+    ├── 01_DIRECTOR_BEAT_PLANNER.md    # storyboard and animatic, 30 s template, 8 shot types
+    ├── 02_SVG_RIG_ENGINEER.md         # waist-up hero, proportions, inserts, interlocutor kit, motion data
+    ├── 03_CAMERA_WORLD_3D.md          # world kit, parallax, the dive, 3D variant
+    ├── 04_AUDIO_LIPSYNC_ENGINEER.md   # line timing, action track, future voice, word stamps
+    └── 05_QA_CRITIQUE_AGENT.md        # clips, joint-speed graphs, onion skin, sheet, safe zone, scoring
 ```
 
-## Quick Install into Claude Code
+## Install and sync
 
-Clone directly into your project's `.claude/skills/` directory:
+This repository is the source; Remotion keeps a copy. Change it here, then copy:
 
 ```bash
-git clone https://github.com/swwway/cyberpunk-motion-studio-bundle.git .claude/skills/cyberpunk-motion-studio
+rsync -a --delete --exclude .git --exclude .gitignore --exclude ВХОДЯЩИЕ.md ./ /root/projects/Remotion/.claude/skills/cyberpunk-motion-studio/
+cp agents/mult-director.md /root/projects/Remotion/.claude/agents/mult-director.md
 ```
 
-Then copy the reference images into your working Remotion project (or keep them linked from the skill path) and start Stage 1 in Claude Code:
+`specs/tokens.json` is imported by Remotion code: add keys, never rename or remove them.
 
-```text
-Activate skill cyberpunk-motion-studio. Read SKILL.md, specs/tokens.json, and assets/refs/*, then execute Stage 1 (3s Style & Motion Demo) and run Role 05 QA.
-```
+## From v1 to v2
 
-## Core Engineering Guardrails
-- **Strictly Lineless Faceted SVG (`stroke="none"`)** — zero `#000000` shadows (plum-indigo `#1F1638` core + `#00F0FF` / `#FF6B5B` rim lights).
-- **Heroic Proportions (`viewBox="0 0 700 800"`)** — proportionally smaller head over broad razor-sharp angular shoulders (`3.2x` width ratio).
-- **Anti-Puppet Optical Cheats** — `SMEAR_WEDGE`, `SHOT_SHOE_STEP`, and 4 rotating transitions (`SHADOW_WHIP`, `IMPACT_FRAME`, `AFTERIMAGE_ECHO`, `SHADOW_BRIDGE`).
-- **Russian Lip-Sync & Emotional Swings** — `rhubarb -r phonetic` or `WhisperX --language ru` + per-beat gain offsets (`whisper: -6dB` vs `energetic: +2dB`) before master `-14 LUFS` normalization + 140ms hard music mute on `DEAD_SERIOUS_GRAVE` snaps.
+- **Kept:** palette, safe zone, transitions without cross-dissolves, viseme map, 7-axis scoring (rebuilt around motion), springs, audio-mix numbers for the future voice.
+- **New:** 8 shot types and the 30 s template; waist-up rig, hand and boot inserts, interlocutor kit, world kit; motion sources (100STYLE, CMU, MediaPipe); motion QA by clips, joint-speed graphs and onion skins; agent `mult-director`.
+- **Removed:** the full-height walk as a shot (only a far silhouette), the 3D cosmos as the default (now a variant), Piper and non-commercial voices, the 4-stage protocol, the 700×800 bust rig and the suit outfit, rhubarb and WhisperX as aligners.

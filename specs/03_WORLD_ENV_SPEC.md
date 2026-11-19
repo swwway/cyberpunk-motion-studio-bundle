@@ -1,14 +1,16 @@
-# 03_WORLD_ENV_SPEC.md — 3-Plane Worlds & Anti-Puppet Optical Playbook
+# 03_WORLD_ENV_SPEC.md — kit worlds, the dive, transitions
 
-1. **3 Depth Planes:** `BG (0.3x, 1.5–3px blur)` | `MG (0.7x, Mood Panels & frosted-glass HUDs)` | `FG (1.0x–1.2x, Hero, macro inserts, sparks, captions)`.
-2. **3 Recurring Locations:**
-   - `LOC_CYBER_SKYLINE`: Brutalist dark skyline + morphing Mood Block (`#F24C4E` / `#A8C0E0` / `#FFB84D`) + drifting sparks.
-   - `LOC_ARCHITECT_TERMINAL`: Panoramic night window + diagonal rain + frosted-glass AI/revenue dashboards (default with `OUTFIT_FORMAL_SUIT`).
-   - `LOC_AI_COSMOS`: Faceless Three.js/WebGL deep space (`#090B16`), 3D starfield, polygonal AI agent cores linked by `#00F0FF` streams (`CAM_SPIRAL_ORBIT`).
-3. **Anti-Puppet Optical Cheats (Zero Fragile Limb Skeletons):**
-   - `SMEAR_WEDGE`: 2-frame skewed polygonal motion-shadow wedge (`#1F1638` + `#00F0FF` leading edge, `opacity: 0.6 -> 0`) snapping into `#prop_hand_point_pov` or target pose + 3-frame spring settle.
-   - `SHOT_SHOE_STEP`: 0.5–0.8s low-angle macro of faceted shoes hitting wet neon pavement (ripple + reflection) -> `TRANS_SHADOW_WHIP` into `BUST_UP_DIALOGUE`.
-   - `WALK_AND_TALK_BOB`: Sinusoidal vertical bob (`Math.abs(Math.sin(f * freq)) * 10px`), sharp-shoulder counter-tilt (`±2.5deg`), 2-frame hair lag, 3-layer parallax glide.
-4. **4-Variant Transition Grammar (Rotate by Beat — Never Spam One Transition):**
-   - `TRANS_SHADOW_WHIP`, `TRANS_IMPACT_FRAME` (1–2 frame `#090B16` + `#00F0FF` flash hiding instant outfit/location swaps), `TRANS_AFTERIMAGE_ECHO` (2–3 trailing ghost silhouettes), `TRANS_SHADOW_BRIDGE` (2-frame dark shadow push into `LOC_AI_COSMOS`).
-5. **Shot Archetype Pruning:** Mount ONLY the layers required for the active shot (`MACRO_SHOE_STEP`, `BUST_UP_DIALOGUE`, `EYE_LETTERBOX`, `POV_HAND_SMASH`, `COSMOS_3D_SPIRAL`).
+1. **Still world:** the world stands, characters move inside it (bible §4). Each episode gets a new place built from the faceted kit — walls, windows, shop windows, signs, furniture, light, wet asphalt — not drawn from scratch. The v1 recurring locations (`LOC_CYBER_SKYLINE`, `LOC_ARCHITECT_TERMINAL`) are gone; their skylines survive as kit seeds (`src/cyber/components/CyberSkyline.tsx`, `src/cyber/flat/FlatCity.tsx`).
+2. **Light motivates the rims:** every place shows a cyan source on the left and a coral one on the right; the hero's rims never appear without them.
+3. **Depth layers:** shares of the camera move — sky 0.05 · far 0.15 · mid 0.4 · character 1.0 · foreground 1.3–1.6 (tokens `parallax`); far layers blur 1.5–3 px. In a tracked walk the character plane scrolls at the walking speed.
+4. **Lines, HUD, CTA:** the parallax shift only, never the camera scale.
+5. **Inside the head (formats 2 + 1):** a saturated gradient world per idea (format 2 palettes: blue-turquoise, red, purple, indigo, olive), one object that transforms, glow, grain, a slow non-linear push; lime words and a scheme on top (format 1). Entry through the eye or the temple, exit back through the eye. Pilot: purple, chats → paper planes.
+6. **Transition grammar** — never a cross-dissolve, never the same transition twice in a row:
+   - `TRANS_SHADOW_WHIP` — a dark whip across the cut;
+   - `TRANS_IMPACT_FRAME` — 1–2 frames of `#090B16` with a cyan flash, hides an instant change of place or size;
+   - `TRANS_AFTERIMAGE_ECHO` — 2–3 trailing ghost silhouettes;
+   - `TRANS_SHADOW_BRIDGE` — a 2-frame dark push into another world;
+   - `STAR_WIPE` — format 2's four-point star: a full-frame flash or a match by shape; the way in and out of the head.
+7. **Optical cheats:** `SMEAR_WEDGE` — a 2-frame skewed facet wedge in the shadow colour of the set in use with a cyan leading edge (v1: `#1F1638` + `#00F0FF`), opacity 0.6 → 0, into the target pose, then a 3-frame spring settle (`smear_settle`); `SHOT_SHOE_STEP` is now shot type 1, the boot insert.
+8. **Prune:** mount only the layers the shot needs; `<ThreeCanvas>` only in 3D shots.
+9. **3D cosmos** (`LOC_AI_COSMOS`, `CAM_SPIRAL_ORBIT`): a variant on request, not the default inside the head (role 03 §5).
