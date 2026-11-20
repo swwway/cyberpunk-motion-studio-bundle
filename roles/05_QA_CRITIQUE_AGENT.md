@@ -45,7 +45,7 @@ In a tracked walk the speed lag `pelvis:hem` is noise (−12…+11 f on `KitProf
 - Facets: hero ≈80–100, interlocutor clearly fewer.
 
 ## 7. Scoring — 1–10 per axis, pass ≥ 8
-1. Hidden joints and proportions: no knee or elbow in any frame; 7.8 heads measured; the coat reads as a garment (lapels, closure, pockets); the face identical to the approved one.
+1. Hidden joints and proportions: no knee or elbow in any frame; 7.8 heads measured; the clothes read as garments that sit on the body, the neck has form (jaw shadow, muscle, slope into the shoulders); the face identical to the approved one.
 2. Motion life: §2–3 pass; the walk matches 100STYLE (cadence, bob).
 3. Palette and facets: motivated cyan-left and coral-right rims, plum and navy shadows, facet budgets.
 4. Safe zone and text: all inside; lines readable at the speaker; frame 0 works as a cover.
