@@ -19,7 +19,7 @@ script (Showrunner + owner) → storyboard (MultStudio + `mult-director`) → an
 1. Knees and elbows never in frame, no full-height step («ужасно, безжизненно»). Steps — boot close-up; body — profile or waist-up, hands in coat pockets; gesture — one hand close-up; full height — only a far silhouette.
 2. The face is approved: paths, colours, features stay; acting only through `HeroPose` (spec 02).
 3. 7.8 heads (owner 20.11; 8.5 was rejected): `HEAD_SCALE` 0.316, the turtleneck refits with the head (`fitCollar`), arms −9 %, shoulder width stays. Measure on a render.
-4b. The coat is cut like a real garment (owner 20.11: the old one was «кусок непонятно чего»): `src/cyber/rig/coat.ts` after FreeSewing Carlton (MIT, `data/coat/carlton/`) — double-breasted, peaked lapels, buttons 2×3, flap pockets, shoulder seam, turtleneck under it. Every new facet names its piece of the cut; hero ≤ 100 facets.
+3b. The coat is cut like a real garment (owner 20.11: the old one was «кусок непонятно чего»): `src/cyber/rig/coat.ts` after FreeSewing Carlton (MIT, `data/coat/carlton/`) — double-breasted, peaked lapels, buttons 2×3, flap pockets, shoulder seam, turtleneck under it. Every new facet names its piece of the cut; hero ≤ 100 facets.
 4. No dead bends: joints overlap under a seam facet; coat flap trails 3–4 frames; smears on fast moves; legs on twos, coat on ones; key poses hold 2–3 frames.
 5. Close-ups are separate inserts with many facets (hand with fingers, boot with sole and roll). Never scale the full rig: its hand and boot have 2 facets each.
 6. Motion comes from data (below), not invented sine waves.
