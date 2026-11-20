@@ -9,10 +9,9 @@ Rules: spec 02. Numbers: tokens.json (`rig_body`, `stepping`, `motion`). New cod
 - Face: `src/cyber/flat/FlatHero.tsx` + `src/cyber/data/flat_hero.json` (49 paths, 768×1376) + `hero_head.json` (crop, pivot, `exclude`; from `scripts/cyber/hero_parts.py`). Locked — spec 02.
 - Facets: 81 (body 40, head 41) of the ≈80–100 budget; none of the rest goes to the face.
 
-## 2. Proportions (issue #8)
-- `HEAD_SCALE` 0.38 → ≈0.295 for ≈8.5 heads; arms −8–10 % along the bone (upper arm, forearm, hand pivots and facets); shoulder width unchanged (≈1.9 heads after the change).
-- Then refit for the new head: `NECK`, the collar and the upper chest — the `chest` polygon from `[-80, 276]` to `[62, 272]` and its collar facets were traced to the reference collar at 0.38. The head mask runs `EXT` = 40 art px below the collar line (`hero_parts.py`): 15 units at 0.38, ≈12 at 0.295; the rig collar must still cover it at every head turn.
-- The numbers are Proko/Loomis, unchecked: draw a debug overlay (crown, chin, shoulder line, sole), measure in px, send a before/after sheet.
+## 2. Proportions and coat (issues #8, #15)
+- 7.8 heads (owner 20.11 after an 8.6 probe): `HEAD_SCALE` 0.316, `HEADS` in `body.ts` is computed from the head art (crown y 182, chin y 815 of 768×1376). Arms −9 % (`ARM_K`), shoulders stay. The traced numbers in `body.ts` are untouched; `fitCollar` and `fitArm` adapt them.
+- The coat (`coat.ts`) replaces the traced chest, flap and sleeve facets. Coordinates are the rest pose at head 0.316 (sheet `KitCoatQA` with `{"rest":true}`, 1 px = 1 rig unit); only the turtleneck is traced and refits with the head — if the head changes again, recheck the collar and lapel tops by eye. Construction from Carlton mapped by body lines: shoulder y 300, chest 485, waist 619, buttons 600/662/724, pocket flaps 785–815. The near (left) panel laps over the far one, so `flapFar` sits under `flapNear` (z 39 < 40). Hip pocket flaps hang on the pelvis: shot 2's hands go under their lip.
 
 ## 3. Waist-up hero (shots 2, 3, 8)
 - Same skeleton, frame cut at the waist, legs out. Hands in coat pockets: the sleeve reads as one shape from shoulder to pocket; any bend lives under a fold facet that overlaps both segments.
