@@ -34,7 +34,7 @@ script (Showrunner + owner) → storyboard (MultStudio + `mult-director`) → an
 | line timing, probe sound, future voice (mix — Showrunner) | `roles/04_AUDIO_LIPSYNC_ENGINEER.md` |
 | motion QA, clips to the owner, scoring | `roles/05_QA_CRITIQUE_AGENT.md` |
 
-Rules: `specs/01` style, `02` rig, `03` world. Numbers: `specs/tokens.json` — code imports it (`src/cyber/tokens.ts`): add keys, never rename or remove. Fresh eye on a board or render — agent `mult-director` (Fable).
+Rules: `specs/01` style, `02` rig, `03` world. Numbers: `specs/tokens.json` — code imports it (`src/cyber/tokens.ts`): add keys, never rename or remove. Fresh eye on a board or render — agent `mult-director` (Fable). It is registered only in sessions started in the Remotion repo or worktree; elsewhere spawn a general-purpose agent with `model: fable` told to read `.claude/agents/mult-director.md` and act as it.
 
 ## Motion sources (bible §3)
 | Source | Terms |

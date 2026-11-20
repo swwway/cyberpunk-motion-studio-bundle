@@ -28,6 +28,8 @@ process.stdout.write(JSON.stringify({ fps: 30, joints: out }));
 
 Reading: a body part near 0 for ≥ 8 frames outside a planned hold is a dead hold (planted feet are meant to be 0); parent and child curves lying on each other — no overlap; the coat hem must trail the hip by 3–4 frames; spikes (`pops`) — pose jumps; flat plateaus — linear spacing; a part faster than ≈30 px/frame wants a smear. Starting thresholds; tune them on approved probes. Calibration — `CyberWalkTest`, which the owner called lifeless: the body is dead from frame 126 for 60+ frames, the hem trails by 7–8 frames.
 
+In a tracked walk the speed lag `pelvis:hem` is noise (−12…+11 f on `KitProfileWalk`): the pelvis bobs at the step period, the flap swings with the thigh at the stride period. There, measure the angle lag thigh → flap by cross-correlating the two angle curves from the pose function (3–4 f), and keep `--lag` for single moves.
+
 ## 3. Onion skin — spacing, arcs, hidden bends
 `ffmpeg -v error -y -i "$IN" -vf "trim=start_frame=A:end_frame=B,setpts=PTS-STARTPTS,tmix=frames=N" -update 1 -frames:v N out/cyber/qa/<shot>/onion_A.png`, N = B − A ≤ 9. An even fan is mechanical spacing; ghosts should crowd near the key poses. A knee or elbow hinge among the ghosts fails axis 1.
 

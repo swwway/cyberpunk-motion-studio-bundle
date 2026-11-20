@@ -18,6 +18,7 @@ Rules: spec 02. Numbers: tokens.json (`rig_body`, `stepping`, `motion`). New cod
 - Same skeleton, frame cut at the waist, legs out. Hands in coat pockets: the sleeve reads as one shape from shoulder to pocket; any bend lives under a fold facet that overlaps both segments.
 - Profile walk: body motion from the 100STYLE curves (§6), the world scrolls behind (role 03 §2). In profile the bob, head pitch and shoulder rise read; sway and roll read only in 3/4 or front.
 - Holds are moving holds: breath every 105–135 frames (`walk.ts`: 120, chest ×1.006), the coat answers every stop late.
+- Over mocap (`src/series/kit/hero/sideWalk.ts`, shot 2): a hard 2-frame hold at contacts makes pops when it releases — ease the body time inside each step instead (speed 50 % at the contact, 150 % mid-step; 30 % was a snap). Chest trails the pelvis 2 f, head 3 f. Hands in pockets: put the wrist on the shoulder → pocket ray at the fixed reach of an 8° elbow, so the bend never breathes and the slack goes into pocket depth under the clip; drop the drawn rim strips of the sleeve, or the chest edge shows behind the forearm as a second coral line.
 - Acting: `HeroPose` — `blink`, `browL/browR`, `iris`, `mouth`, `smirk`, `rimCyan/rimCoral`. Blink every 75–120 frames plus a forced one on each emotion switch, starting on even frames (`blinkAt` in `src/cyber/faceRig.ts`).
 
 ## 4. Inserts (issue #11) — separate rigs, own facets
